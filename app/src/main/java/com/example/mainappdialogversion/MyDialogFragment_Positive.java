@@ -1,0 +1,131 @@
+package com.example.mainappdialogversion;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.Arrays;
+import java.util.List;
+
+// 긍정 알림 팝업 프래그먼트
+public class MyDialogFragment_Positive extends DialogFragment {
+    RecyclerView rv;
+    private RecyclerAdapter adapter;
+    public static int direction = 0;
+
+    // this method create view for your Dialog
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        //inflate layout with recycler view
+        View v = inflater.inflate(R.layout.fragment_positive, container, false);
+        rv = (RecyclerView) v.findViewById(R.id.recyclerView);
+        init();
+        getData();
+        return v;
+    }
+    public void init(){
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        rv.setLayoutManager(linearLayoutManager);
+        adapter = new RecyclerAdapter(R.layout.itemp);
+        new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(rv);
+        rv.setAdapter(adapter);
+    }
+
+
+    private void getData() {
+        // 임의의 데이터 여기는 서버로 연결되므로 서버에서 계속하여 갱신한 값을 가져온다.
+        List<String> listTitle = Arrays.asList("카카오톡", "페이스북", "카카오톡", "페이코", "페이스북", "카카오톡", "카카오톡", "페이스북",
+                "인스타그램", "인스타그램", "인스타그램", "페이코", "카카오톡", "페이스북", "페이코");
+        List<String> listContent = Arrays.asList(
+                "모자 특가 할인 중!",
+                "선착순 1000명 족발 할인 쿠폰 쏜다!",
+                "오늘 한일전 8시, 치킨 먹지 않을래?",
+                "제 5회 공항철도 공모전 개최 확인하기",
+                "마라탕이 논란이 된 이유",
+                "마카롱 더이상 먹지 마세요.",
+                "8월 작가와의 만남 신청하기",
+                "화제의 그 화장품, 피부에 엄청 안좋다고?",
+                "유럽인들이 한국에 오면 꼭 사가는 화장품 리스트",
+                "오프라인 모임에 가입해보세요.",
+                "영상시스템님이 시급 만원의 새 일감을 등록하였습니다.",
+                "서현동 근처에서 이번 주 핫했던 인기 매물을 만나보세요.",
+                "오늘은 말복이니까 치킨 할인",
+                "이번 주 마음의 소리 보러가기",
+                "새로운 친구 추천이 있습니다:조수은님"
+
+        );
+        List<Integer> listResId = Arrays.asList(
+                // 이미지 파일 연결. 일단 무시해도 됨
+              /*  R.drawable.chrysanthemum,
+                R.drawable.desert,
+                R.drawable.hydrangeas,
+                R.drawable.jellyfish,
+                R.drawable.koala,
+                R.drawable.lighthouse,
+                R.drawable.penguins,
+                R.drawable.tulips,
+                R.drawable.chrysanthemum,
+                R.drawable.desert,
+                R.drawable.hydrangeas,
+                R.drawable.jellyfish,
+                R.drawable.koala,
+                R.drawable.lighthouse,
+                R.drawable.penguins,
+                R.drawable.tulips  */
+        );
+        for (int i = 0; i < listTitle.size(); i++) {
+            // 각 List의 값들을 data 객체에 set
+            Data data = new Data();
+            data.setTitle(listTitle.get(i));
+            data.setContent(listContent.get(i));
+            //data.setResId(listResId.get(i));
+
+            // 각 값이 들어간 data를 adapter에 추가
+            adapter.addItem(data);
+        }
+
+        // adapter의 값이 변경되었다는 것을 알려줌
+        adapter.notifyDataSetChanged();
+    }
+
+    ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+//구현하기!
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+            //스와이프 방향값을 정수형으로 얻어옴.
+            MyDialogFragment_Positive.direction = direction;
+            runAnimationAgain(viewHolder);
+
+        }
+    };
+
+    private void runAnimationAgain(@NonNull RecyclerView.ViewHolder viewHolder) {
+        final LayoutAnimationController controller = AnimationUtils.loadLayoutAnimation(getContext(), R.anim.layout_animation_down_to_up);
+
+        adapter.getListData().remove(viewHolder.getAdapterPosition());
+        adapter.notifyDataSetChanged();
+        //서버에 변경사항을 적용한다.
+        rv.setLayoutAnimation(controller);
+
+
+
+    }
+
+
+
+
+}
