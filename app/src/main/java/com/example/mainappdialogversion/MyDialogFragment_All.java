@@ -23,6 +23,7 @@ import java.util.List;
 public class MyDialogFragment_All extends DialogFragment {
     RecyclerView rv;
     private RecyclerAdapter adapter;
+    private static int direction = 0;
 
 
 
@@ -43,6 +44,7 @@ public class MyDialogFragment_All extends DialogFragment {
         adapter = new RecyclerAdapter(R.layout.item);
         new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(rv);
         rv.setAdapter(adapter);
+
     }
 
     private void getData() {
@@ -87,6 +89,7 @@ public class MyDialogFragment_All extends DialogFragment {
         );
         for (int i = 0; i < listTitle.size(); i++) {
             // 각 List의 값들을 data 객체에 set
+
             Data data = new Data();
             data.setTitle(listTitle.get(i));
             data.setContent(listContent.get(i));
@@ -110,9 +113,14 @@ public class MyDialogFragment_All extends DialogFragment {
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
 
+            //스와이프 방향값을 정수형으로 얻어옴.
+            MyDialogFragment_All.direction = direction;
             runAnimationAgain(viewHolder);
+            System.out.println((MyDialogFragment_All.direction - 6)/2);
+            // 여기 아래에는 DB로 스와이프 한 노티의 id와 +1, -1 보내는 메서드
 
         }
+
     };
 
     private void runAnimationAgain(@NonNull RecyclerView.ViewHolder viewHolder) {
@@ -121,11 +129,6 @@ public class MyDialogFragment_All extends DialogFragment {
         adapter.getListData().remove(viewHolder.getAdapterPosition());
         adapter.notifyDataSetChanged();
         rv.setLayoutAnimation(controller);
-
-
-
     }
-
-
 
 }

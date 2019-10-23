@@ -29,9 +29,11 @@
         android:onClick="btn3Method"
         android:text="부정 알림" />
 
-    <FrameLayout
-        android:id="@+id/container"
+    <Button
+        android:id="@+id/button4"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </FrameLayout>
+        android:layout_height="wrap_content"
+        android:onClick="btn4Method"
+        android:text="Word Cloud" />
+
 </LinearLayout>

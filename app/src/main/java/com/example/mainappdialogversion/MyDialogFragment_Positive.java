@@ -20,7 +20,7 @@ import java.util.List;
 public class MyDialogFragment_Positive extends DialogFragment {
     RecyclerView rv;
     private RecyclerAdapter adapter;
-    public static int direction = 0;
+    private static int direction = 0;
 
     // this method create view for your Dialog
     @Override
@@ -109,6 +109,7 @@ public class MyDialogFragment_Positive extends DialogFragment {
             //스와이프 방향값을 정수형으로 얻어옴.
             MyDialogFragment_Positive.direction = direction;
             runAnimationAgain(viewHolder);
+            System.out.println((MyDialogFragment_Positive.direction - 6)/2);
 
         }
     };
@@ -122,6 +123,11 @@ public class MyDialogFragment_Positive extends DialogFragment {
         rv.setLayoutAnimation(controller);
 
 
+
+    }
+
+    public int getdirection(){
+        return (MyDialogFragment_Positive.direction - 6) / 2;
 
     }
 

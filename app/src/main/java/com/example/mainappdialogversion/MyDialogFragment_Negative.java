@@ -21,6 +21,7 @@ import java.util.List;
 public class MyDialogFragment_Negative extends DialogFragment {
     RecyclerView rv;
     private RecyclerAdapter adapter;
+    private static int direction = 0;
 
 
     // this method create view for your Dialog
@@ -107,7 +108,10 @@ public class MyDialogFragment_Negative extends DialogFragment {
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
 
+            //스와이프 방향값을 정수형으로 얻어옴.
+            MyDialogFragment_Negative.direction = direction;
             runAnimationAgain(viewHolder);
+            System.out.println((MyDialogFragment_Negative.direction - 6)/2);
 
         }
     };
@@ -120,6 +124,10 @@ public class MyDialogFragment_Negative extends DialogFragment {
         rv.setLayoutAnimation(controller);
 
 
+
+    }
+    public int getdirection(){
+        return (MyDialogFragment_Negative.direction - 6) / 2;
 
     }
 

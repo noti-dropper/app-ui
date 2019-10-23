@@ -13,22 +13,8 @@ public class MainActivity extends AppCompatActivity {
     MyDialogFragment_All all = new MyDialogFragment_All();
     MyDialogFragment_Positive positive = new MyDialogFragment_Positive();
     MyDialogFragment_Negative negative = new MyDialogFragment_Negative();
+    MyDialogFragment_Word_Cloud wordcloud = new MyDialogFragment_Word_Cloud();
 
-
-    public void onFragmentInteraction(Uri uri){
-
-    }
-
-    public void onNoteFragmentInteraction(String string){
-        //All fragment= All.newInstance("","");
-
-
-
-        // update the main content by replacing fragments
-
-
-
-    }
 
 
     @Override
@@ -64,6 +50,15 @@ public class MainActivity extends AppCompatActivity {
         tran.replace(R.id.container, negative);
         MyDialogFragment_Negative myDialogFragment_negative = new MyDialogFragment_Negative();
         myDialogFragment_negative.show(manager, "test");
+
+    }
+
+    public void btn4Method(View view){
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction tran = manager.beginTransaction();
+        tran.replace(R.id.container2, wordcloud);
+        MyDialogFragment_Word_Cloud myDialogFragment_word_cloud = new MyDialogFragment_Word_Cloud();
+        myDialogFragment_word_cloud.show(manager, "test");
 
     }
 
