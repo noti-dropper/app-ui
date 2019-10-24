@@ -21,9 +21,18 @@ public class Splash extends Activity {
     }
 
     private class splashhandler implements Runnable{
+
+
         public void run(){
-            startActivity(new Intent(getApplication(), FirstOpen.class)); //로딩이 끝난 후, ChoiceFunction 이동
-            Splash.this.finish(); // 로딩페이지 Activity stack에서 제거
+            if (ConfigHelper.getConfigValue(getBaseContext(), "register") == null) {
+                startActivity(new Intent(getApplication(), FirstOpen.class)); //로딩이 끝난 후, ChoiceFunction 이동
+                Splash.this.finish(); // 로딩페이지 Activity stack에서 제거
+            }
+            else{
+                startActivity(new Intent(getApplication(), MainActivity.class)); //로딩이 끝난 후, ChoiceFunction 이동
+                Splash.this.finish();
+
+            }
         }
     }
 

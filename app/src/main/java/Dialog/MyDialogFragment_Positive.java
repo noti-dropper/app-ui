@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
@@ -22,6 +23,7 @@ import java.util.List;
 // 긍정 알림 팝업 프래그먼트
 public class MyDialogFragment_Positive extends DialogFragment {
     RecyclerView rv;
+    ImageButton close;
     private RecyclerAdapter adapter;
     private static int direction = 0;
 
@@ -31,6 +33,15 @@ public class MyDialogFragment_Positive extends DialogFragment {
         //inflate layout with recycler view
         View v = inflater.inflate(R.layout.fragment_positive, container, false);
         rv = (RecyclerView) v.findViewById(R.id.recyclerView);
+        close = (ImageButton) v.findViewById(R.id.close);
+
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
+
         init();
         getData();
         return v;
