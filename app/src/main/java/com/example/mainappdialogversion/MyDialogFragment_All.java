@@ -42,7 +42,6 @@ public class MyDialogFragment_All extends DialogFragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rv.setLayoutManager(linearLayoutManager);
         adapter = new RecyclerAdapter(R.layout.item);
-        new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(rv);
         rv.setAdapter(adapter);
 
     }
