@@ -1,4 +1,4 @@
-package com.example.mainappdialogversion;
+package Dialog;
 
 
 import android.view.LayoutInflater;
@@ -8,11 +8,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mainappdialogversion.Data;
+import com.example.mainappdialogversion.R;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemViewHolder>  {
 
@@ -60,22 +61,22 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
     // 여기서 subView를 setting 해줍니다.
     class ItemViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView textView1;
-        private TextView textView2;
-        private ImageView imageView;
+        private TextView TitleText;
+        private TextView SubText;
+        private ImageView IconView;
 
         ItemViewHolder(View itemView) {
             super(itemView);
 
-            textView1 = itemView.findViewById(R.id.textView1);
-            textView2 = itemView.findViewById(R.id.textView2);
-            imageView = itemView.findViewById(R.id.imageView);
+            TitleText = itemView.findViewById(R.id.TitleText);
+            SubText = itemView.findViewById(R.id.SubText);
+            IconView = itemView.findViewById(R.id.IconView);
         }
 
         void onBind(Data data) {
-            textView1.setText(data.getTitle());
-            textView2.setText(data.getContent());
-            imageView.setImageResource(data.getResId());
+            TitleText.setText(data.getTitle());
+            SubText.setText(data.getContent());
+            IconView.setImageResource(data.getResId());
         }
     }
 

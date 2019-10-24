@@ -1,4 +1,4 @@
-package com.example.mainappdialogversion;
+package Dialog;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +12,9 @@ import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.mainappdialogversion.Data;
+import com.example.mainappdialogversion.R;
 
 import java.util.Arrays;
 import java.util.List;

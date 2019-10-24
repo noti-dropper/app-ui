@@ -50,7 +50,6 @@
             android:layout_marginBottom="40dp"/>
 
         <TextView
-            android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="가장 좋아하는게 뭐에요?"
@@ -96,7 +95,7 @@
             android:textColorHint="#e57373" />
 
         <Button
-            android:id="@+id/startbutton"
+            android:id="@+id/FirstBtn"
             android:layout_width="178dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

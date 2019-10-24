@@ -1,4 +1,4 @@
-package com.example.mainappdialogversion;
+package Dialog;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +12,9 @@ import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.mainappdialogversion.Data;
+import com.example.mainappdialogversion.R;
 
 import java.util.Arrays;
 import java.util.List;
@@ -66,33 +69,16 @@ public class MyDialogFragment_All extends DialogFragment {
                 "이번 주 마음의 소리 보러가기",
                 "새로운 친구 추천이 있습니다:조수은님"
         );
-        List<Integer> listResId = Arrays.asList(
-                // 이미지 파일 연결. 일단 무시해도 됨
-              /*  R.drawable.chrysanthemum,
-                R.drawable.desert,
-                R.drawable.hydrangeas,
-                R.drawable.jellyfish,
-                R.drawable.koala,
-                R.drawable.lighthouse,
-                R.drawable.penguins,
-                R.drawable.tulips,
-                R.drawable.chrysanthemum,
-                R.drawable.desert,
-                R.drawable.hydrangeas,
-                R.drawable.jellyfish,
-                R.drawable.koala,
-                R.drawable.lighthouse,
-                R.drawable.penguins,
-                R.drawable.tulips  */
-        );
+
+
+
+
         for (int i = 0; i < listTitle.size(); i++) {
             // 각 List의 값들을 data 객체에 set
-
             Data data = new Data();
             data.setTitle(listTitle.get(i));
             data.setContent(listContent.get(i));
             //data.setResId(listResId.get(i));
-
             // 각 값이 들어간 data를 adapter에 추가
             adapter.addItem(data);
         }
@@ -115,8 +101,6 @@ public class MyDialogFragment_All extends DialogFragment {
             MyDialogFragment_All.direction = direction;
             runAnimationAgain(viewHolder);
             System.out.println((MyDialogFragment_All.direction - 6)/2);
-            // 여기 아래에는 DB로 스와이프 한 노티의 id와 +1, -1 보내는 메서드
-
         }
 
     };

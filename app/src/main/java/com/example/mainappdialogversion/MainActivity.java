@@ -7,12 +7,15 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 
+import Dialog.MyDialogFragment_All;
+import Dialog.MyDialogFragment_Negative;
+import Dialog.MyDialogFragment_Positive;
+
 public class MainActivity extends AppCompatActivity {
 
     MyDialogFragment_All all = new MyDialogFragment_All();
     MyDialogFragment_Positive positive = new MyDialogFragment_Positive();
     MyDialogFragment_Negative negative = new MyDialogFragment_Negative();
-    MyDialogFragment_Word_Cloud wordcloud = new MyDialogFragment_Word_Cloud();
 
 
 
@@ -60,19 +63,6 @@ public class MainActivity extends AppCompatActivity {
         myDialogFragment_negative.show(manager, "test");
 
     }
-
-
-
-     // 워드 클라우드 버튼인데 이건 현재 사용 안함
-    public void btn4Method(View view){
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction tran = manager.beginTransaction();
-        tran.replace(R.id.container2, wordcloud);
-        MyDialogFragment_Word_Cloud myDialogFragment_word_cloud = new MyDialogFragment_Word_Cloud();
-        myDialogFragment_word_cloud.show(manager, "test");
-
-    }
-
 
 
 
