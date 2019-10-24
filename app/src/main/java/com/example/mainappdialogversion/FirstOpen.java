@@ -1,12 +1,11 @@
 package com.example.mainappdialogversion;
 
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class FirstOpen extends AppCompatActivity {
 
@@ -18,7 +17,17 @@ public class FirstOpen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_open);
 
-        Button button = (Button)findViewById(R.id.startbutton); /*페이지 전환버튼*/
+
+        // like, hate 키워드 스티링에 저장
+        EditText editText1 = (EditText) findViewById(R.id.editText_like) ;
+        String keyword_like = editText1.getText().toString() ;
+
+        EditText editText2 = (EditText) findViewById(R.id.editText_hate) ;
+        String keyword_hate = editText2.getText().toString() ;
+
+
+
+        Button button = (Button)findViewById(R.id.startbutton); /*메인 액팁비티로 넘어가는 버튼*/
 
         button.setOnClickListener(new View.OnClickListener(){
             @Override

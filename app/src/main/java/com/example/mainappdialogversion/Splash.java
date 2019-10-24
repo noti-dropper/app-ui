@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Handler;
 
 import android.os.Bundle;
-import android.view.WindowManager;
+
 
 public class Splash extends Activity {
 

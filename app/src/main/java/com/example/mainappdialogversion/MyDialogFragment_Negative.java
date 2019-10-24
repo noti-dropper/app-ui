@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -115,6 +114,8 @@ public class MyDialogFragment_Negative extends DialogFragment {
 
         }
     };
+
+    //
 
     private void runAnimationAgain(@NonNull RecyclerView.ViewHolder viewHolder) {
         final LayoutAnimationController controller = AnimationUtils.loadLayoutAnimation(getContext(), R.anim.layout_animation_down_to_up);

@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
@@ -21,8 +20,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
     }
+
+    // 모든 알림 보여주는 버튼
 
     public void btn1Method(View view){
         FragmentManager manager = getSupportFragmentManager();
@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         MyDialogFragment_All myDialogFragmentAll = new MyDialogFragment_All();
         myDialogFragmentAll.show(manager, "test");
     }
+
+
+    // 선호 알림 보여주는 버튼
 
 
     public void btn2Method(View view){
@@ -45,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+    // 비선호 알림 보여주는 버튼
+
+
     public void btn3Method(View view){
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction tran = manager.beginTransaction();
@@ -54,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
+     // 워드 클라우드 버튼인데 이건 현재 사용 안함
     public void btn4Method(View view){
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction tran = manager.beginTransaction();
