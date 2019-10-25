@@ -61,6 +61,8 @@ public class MyDialogFragment_All extends DialogFragment {
 
     }
 
+
+    // :TODO: 노티 데이터 받아서 저장하는 부분
     private void getData() {
         // 임의의 데이터
         List<String> listTitle = Arrays.asList("카카오톡", "페이스북", "카카오톡", "페이코", "페이스북", "카카오톡", "카카오톡", "페이스북",

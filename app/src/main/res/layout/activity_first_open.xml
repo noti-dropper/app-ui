@@ -72,13 +72,22 @@
             android:textColorHint="#82b1ff" />
 
         <TextView
+            android:layout_width="299dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp"
+            android:textSize="15dp"
+            android:text="예시: 피자, 전역, 휴가..."/>
+
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="가장 싫어하는게 뭐에요?"
             android:textColor="#ffffff"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="70dp"/>
+            android:layout_marginTop="40dp"/>
 
         <EditText
             android:id="@+id/editText_hate"
@@ -94,12 +103,20 @@
             android:text=""
             android:textColorHint="#e57373" />
 
+        <TextView
+            android:layout_width="299dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp"
+            android:textSize="15dp"
+            android:text="예시: 복귀, 선임, 에러메시지 ..."/>
+
         <Button
             android:id="@+id/FirstBtn"
-            android:layout_width="178dp"
-            android:layout_height="wrap_content"
+            android:layout_width="210dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
-            android:layout_marginTop="180dp"
+            android:layout_marginTop="120dp"
             android:background="@drawable/roundedborder"
             android:text="알림서랍 시작하기"
             android:textStyle="bold"

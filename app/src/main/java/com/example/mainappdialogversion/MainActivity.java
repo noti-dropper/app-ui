@@ -59,15 +59,7 @@ public class MainActivity extends AppCompatActivity {
         getImg.execute();
     }
 
-    // 모든 알림 보여주는 버튼
 
-    public void btn1Method(View view){
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction tran = manager.beginTransaction();
-        tran.replace(R.id.container, all);
-        MyDialogFragment_All myDialogFragmentAll = new MyDialogFragment_All();
-        myDialogFragmentAll.show(manager, "test");
-    }
 
 
     // 선호 알림 보여주는 버튼
@@ -87,8 +79,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     // 비선호 알림 보여주는 버튼
-
-
     public void btn3Method(View view){
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction tran = manager.beginTransaction();
@@ -114,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
             // 비동기 처리 후 결과값을 리턴
             // 이 메소드가 끝난 후에 onPostExecute()가 실행됨
             return new ApiCommUtil().requestImg(url, jsonData);
+            // :TODO: 이미지 가져오는 부분
         }
 
         @Override

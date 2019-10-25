@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
-
 import androidx.appcompat.app.AppCompatActivity;
+
+
 
 public class FirstOpen extends AppCompatActivity {
 
@@ -24,14 +24,9 @@ public class FirstOpen extends AppCompatActivity {
 
 
 
+        Button button = (Button) findViewById(R.id.FirstBtn); /*메인 액팁비티로 넘어가는 버튼*/
 
-
-
-
-
-        Button button = (Button)findViewById(R.id.FirstBtn); /*메인 액팁비티로 넘어가는 버튼*/
-
-        button.setOnClickListener(new View.OnClickListener(){
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -39,18 +34,19 @@ public class FirstOpen extends AppCompatActivity {
                 startActivityForResult(intent, sub);//액티비티 띄우기
                 System.out.println(keyword_like);
                 //  db로 보낼 like, hate 키워드 스티링에 저장
-                EditText editText1 = (EditText) findViewById(R.id.editText_like) ;
+                EditText editText1 = (EditText) findViewById(R.id.editText_like);
                 keyword_like = editText1.getText().toString();
-                EditText editText2 = (EditText) findViewById(R.id.editText_hate) ;
-                keyword_hate = editText2.getText().toString() ;
+                EditText editText2 = (EditText) findViewById(R.id.editText_hate);
+                keyword_hate = editText2.getText().toString();
                 ConfigHelper.setConfigValue(getBaseContext(), "register", "done");
+
+                // :TODO: NOUN 데이터베이스 업데이트 / keyword_like / keyword_hate
+
             }
         });
 
 
     }
-
-
 
 
 }
